@@ -12,8 +12,15 @@ export default function Counter() {
 				localStorage.setItem('count', count);
 			}
 		}, 1);
+
+		const saveInteval = setInterval(() => {
+			if (started) {
+				localStorage.setItem('count', count);
+			}
+		});
 		return function cleanup() {
 			clearInterval(myInterval);
+			clearInterval(saveInteval);
 		};
 	}, [count, speed, started]);
 	useEffect(() => {
