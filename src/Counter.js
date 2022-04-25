@@ -17,7 +17,7 @@ export default function Counter() {
 			if (started) {
 				localStorage.setItem('count', count);
 			}
-		});
+		}, 1000);
 		return function cleanup() {
 			clearInterval(myInterval);
 			clearInterval(saveInteval);
